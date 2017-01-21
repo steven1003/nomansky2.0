@@ -21,7 +21,7 @@ public:
 
 private:
     float roughness;
-    int terrain_array[100];
+    int *terrain_array;
     void generateTerrain(int leftindex, int rightindex, int displacement);
 };
 

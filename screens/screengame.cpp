@@ -2,20 +2,22 @@
 #include <iostream>
 
 ScreenGame::ScreenGame() {
-    // terrain_array = new int[100];
-    roughness = 20;
-    std::cout << "This works?: " <<  terrain_array[0] << std::endl;
+    terrain_array = new int[100];
+    for(int i = 0; i < 100; i++) {
+        terrain_array[i] = 0;
+    }
+    roughness = 0.5;
+    generateTerrain(0, 99, 25);
+
+
 }
 
 ScreenGame::~ScreenGame() {}
 
 int ScreenGame::run(sf::RenderWindow &window) {
-    generateTerrain(0, 99, 20);
-
     std::cout << "running game" << std::endl;
-    for (int i = 0; i < 100; i++) {
-        std::cout << terrain_array[i] << std::endl;
-    }
+    generateTerrain(0, 99, 25);
+
     sf::Event Event;
 
     sf::RectangleShape rect;
@@ -36,7 +38,7 @@ int ScreenGame::run(sf::RenderWindow &window) {
         }
         window.clear(sf::Color(0, 0, 0, 0));
         for (int i = 0; i < 100; i++) {
-            rect.setPosition(sf::Vector2f(i * 10, terrain_array[i]));
+            rect.setPosition(sf::Vector2f(i * 10, 300 + terrain_array[i]));
             window.draw(rect);
         }
         window.display();
