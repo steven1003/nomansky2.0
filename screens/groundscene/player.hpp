@@ -12,7 +12,6 @@ public:
     virtual void draw(sf::RenderWindow &window);
 
     void setView(sf::RenderWindow &window, sf::View &view);
-
 private:
     int part;
     sf::Clock clock;
