@@ -9,9 +9,9 @@ namespace gui {
 		this->rectInner->setPosition(sf::Vector2f(1,1));
 	}
 
-	tooltip::display() {
-		window.draw(rectOuter);
-		window.draw(rectInner);
+	void tooltip::display(sf::RenderWindow &window) {
+		window.draw(*rectOuter);
+		window.draw(*rectInner);
 	}
 
 	tooltip::~tooltip() {

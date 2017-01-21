@@ -9,11 +9,11 @@ namespace gui {
 	public:
 		tooltip(std::string text);
 		virtual ~tooltip();
-		void display();
+		void display(sf::RenderWindow &window);
 	private:
 		std::string text;
-		sf::RectangleShape rectInner;
-		sf::RectangleShape rectOuter;
+		sf::RectangleShape* rectInner;
+		sf::RectangleShape* rectOuter;
 	};
 
 	class inventory {
