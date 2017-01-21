@@ -5,6 +5,17 @@
 
 namespace gui {
 
+	class tooltip {
+	public:
+		tooltip(std::string text);
+		virtual ~tooltip();
+		void display();
+	private:
+		std::string text;
+		sf::RectangleShape rectInner;
+		sf::RectangleShape rectOuter;
+	};
+
 	class inventory {
 	public:
 		inventory(int width, int height);
