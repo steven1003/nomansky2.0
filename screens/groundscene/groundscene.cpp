@@ -1,4 +1,5 @@
 #include "groundscene.hpp"
+#include "../../tools/anim.hpp"
 #include <iostream>
 
 
@@ -30,6 +31,8 @@ int GroundScene::run(sf::RenderWindow &window) {
     rect.setFillColor(sf::Color::Cyan);
 
     auto view = window.getDefaultView();
+
+    int part = 0;
 
     while (window.isOpen()) {
         while (window.pollEvent(Event)) {
@@ -63,6 +66,7 @@ int GroundScene::run(sf::RenderWindow &window) {
             e->draw(window);
         }
         ((Player*)entities[0]) -> setView(window, view);
+
         window.display();
     }
     return (-1);

@@ -3,6 +3,7 @@
 #include <vector>
 #include "boundingbox.hpp"
 #include <SFML/Graphics.hpp>
+#include "../../tools/anim.hpp"
 
 class GroundEntity {
 
@@ -11,7 +12,9 @@ protected:
     sf::Vector2f prevpos;
     sf::Vector2f vel;
     float movespeed;
+    
 public:
+    Anim anim;
     BoundingBox boundingBox;
     bool intersects(GroundEntity &e);
     bool intersects(sf::FloatRect b);
