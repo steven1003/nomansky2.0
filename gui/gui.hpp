@@ -7,7 +7,7 @@ namespace gui {
 
 	class tooltip {
 	public:
-		tooltip(std::string text);
+		tooltip(std::string text, int width, int height, int posx, int posy);
 		virtual ~tooltip();
 		void display(sf::RenderWindow &window);
 	private:
