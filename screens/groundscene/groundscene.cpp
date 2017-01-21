@@ -1,5 +1,6 @@
 #include "groundscene.hpp"
 #include "../../tools/anim.hpp"
+#include "../../gui/gui.hpp"
 #include <iostream>
 
 GroundScene::GroundScene() {
@@ -30,6 +31,10 @@ int GroundScene::run(sf::RenderWindow &window) {
 
     int part = 0;
 
+    gui::inventory inv(40, 40);
+
+    bool dispInv = false;
+
     while (window.isOpen()) {
         while (window.pollEvent(Event)) {
             if (Event.type == sf::Event::Closed) {
@@ -38,7 +43,14 @@ int GroundScene::run(sf::RenderWindow &window) {
             else if (Event.type == sf::Event::KeyPressed) {
                 switch (Event.key.code) {
                 case sf::Keyboard::Escape:
-                    return 2; //Goes to Pause Menu
+                    if(dispInv) {
+                        dispInv = false;
+                        break;
+                    } else {
+                        return 2; //Goes to Pause Menu
+                    }
+                case sf::Keyboard::I:
+                    dispInv = true;
                 }
             }
         }
@@ -56,6 +68,11 @@ int GroundScene::run(sf::RenderWindow &window) {
             } else {
                 part++;
             }
+        }
+
+        if(dispInv) {
+            inv.display(window);
+            inv.check(window);
         }
 
         window.draw(playerAnim->getSprite());
