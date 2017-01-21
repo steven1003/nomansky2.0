@@ -11,6 +11,7 @@
 #include <SFML/Network.hpp>
 #include <memory>
 #include <stdexcept>
+#include "tile.hpp"
 
 class GroundScene : public CScreen {
 public:

@@ -21,7 +21,7 @@ int GroundScene::run(sf::RenderWindow &window) {
     sf::Event Event;
 
     sf::RectangleShape rect;
-    rect.setSize(sf::Vector2f(10, 10));
+    rect.setSize(sf::Vector2f(32, 32));
     rect.setFillColor(sf::Color::Cyan);
 
     while (window.isOpen()) {
@@ -38,7 +38,7 @@ int GroundScene::run(sf::RenderWindow &window) {
         }
         window.clear(sf::Color(0, 0, 0, 0));
         for (int i = 0; i < 100; i++) {
-            rect.setPosition(sf::Vector2f(i * 10, 300 + terrain_array[i]));
+            rect.setPosition(sf::Vector2f(i * 32, 300 + terrain_array[i]));
             window.draw(rect);
         }
         window.display();
@@ -51,6 +51,8 @@ void GroundScene::generateTerrain(int leftindex, int rightindex, int displacemen
         return;
     int midindex = ((leftindex + rightindex) / 2);
     int change = ((rand() % 11) - 5) * displacement;
+    // std::cout << (rand() % 2) - 1 << std::endl;
+    // int change = ((rand() % 2) - 1) * 32;
     terrain_array[midindex] = (terrain_array[leftindex] + terrain_array[rightindex]) / 2 + change;
     displacement = displacement * roughness;
     generateTerrain(leftindex, midindex, displacement);

@@ -6,8 +6,7 @@ ScreenMainMenu::ScreenMainMenu() {}
 int ScreenMainMenu::run(sf::RenderWindow &window) {
     sf::Event Event;
     sf::Font font;
-    if(!font.loadFromFile("rsc/font.ttf"))
-    {
+    if(!font.loadFromFile("rsc/font.ttf")) {
       return EXIT_FAILURE;
     }
     sf::Text text("No Mans Sky - Pretty much", font, 50);
