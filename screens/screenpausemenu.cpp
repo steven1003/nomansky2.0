@@ -10,8 +10,20 @@ int ScreenPauseMenu::run(sf::RenderWindow &window) {
     {
       return EXIT_FAILURE;
     }
-    sf::Text text("Pause Menu - Pretty much", font, 50);
+    sf::Text title("Pause Menu", font, 50);
+    title.setPosition(275, 10);
 
+    sf::Text o1("Continue",font, 35);
+    o1.setPosition(325, 100);
+
+	sf::Text o2("Main Menu",font, 35);
+    o2.setPosition(325, 150);
+
+	sf::Text o3("Options",font, 35);
+    o3.setPosition(325, 200);
+
+	sf::Text o4("Quit",font, 35);
+    o4.setPosition(325, 250);
 
     while (window.isOpen()) {
         while (window.pollEvent(Event)) {
@@ -27,7 +39,11 @@ int ScreenPauseMenu::run(sf::RenderWindow &window) {
         }
 
         window.clear(sf::Color(0, 0, 0, 0));
-        window.draw(text);
+        window.draw(title);
+        window.draw(o1);
+        window.draw(o2);
+        window.draw(o3);
+        window.draw(o4);
         window.display();
 
     }
