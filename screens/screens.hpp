@@ -6,5 +6,6 @@
 
 #include "groundscene/groundscene.hpp"
 #include "screenmainmenu.hpp"
+#include "screenpausemenu.hpp"
 
 #endif
