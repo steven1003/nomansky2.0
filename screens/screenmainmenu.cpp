@@ -30,6 +30,8 @@ int ScreenMainMenu::run(sf::RenderWindow &window) {
     sf::FloatRect op3 = option3.getGlobalBounds();
     sf::FloatRect op4 = option4.getGlobalBounds();
 
+    auto view = window.getDefaultView();
+    window.setView(view);
     while (window.isOpen()) {
         while (window.pollEvent(Event)) {
             if (Event.type == sf::Event::Closed) {

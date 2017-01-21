@@ -83,7 +83,6 @@ int GroundScene::run(sf::RenderWindow &window) {
             inv.display(window);
             inv.check(window);
         }
-
         window.display();
     }
     return (-1);
