@@ -12,7 +12,7 @@ protected:
     sf::Vector2f prevpos;
     sf::Vector2f vel;
     float movespeed;
-    
+
 public:
     Anim anim;
     BoundingBox boundingBox;
@@ -23,6 +23,7 @@ public:
     virtual void move() = 0;
     virtual void draw(sf::RenderWindow &window) = 0;
     void move(sf::Vector2f &vel);
-
+    void setGravity(sf::Vector2f grav);
     void goBack();
+    void noClip();
 };

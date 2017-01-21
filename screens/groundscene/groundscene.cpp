@@ -17,6 +17,7 @@ GroundScene::GroundScene() {
     entities.push_back(new Player());
 
     gravity = sf::Vector2f(0,0.2);
+
     // Player player();
 }
 
@@ -60,15 +61,17 @@ int GroundScene::run(sf::RenderWindow &window) {
         }
         window.clear(sf::Color(0, 0, 0, 0));
         for (auto const &e : entities) {
-            e->move(gravity);
             e->move();
+            e->setGravity(gravity);
         }
-        for (int i = 0; i < 100; i++) {
+
+          for (int i = 0; i < 100; i++) {
             rect.setPosition(sf::Vector2f(i * 32, 300 + terrain_array[i]));
             window.draw(rect);
             for (auto const &e : entities) {
-                // std::cout << rect.getGlobalBounds().left << " " << rect.getGlobalBounds().top << std::endl;
+                //std::cout << rect.getGlobalBounds().left << " " << rect.getGlobalBounds().top << std::endl;
                 if (e->intersects(rect.getGlobalBounds())) {
+                    //std::cout <<"Im colliding!"<< std::endl;
                     e->goBack();
                 }
             }

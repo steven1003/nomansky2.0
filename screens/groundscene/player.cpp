@@ -8,10 +8,8 @@ Player::Player(){
     boundingBox.boxes.push_back(sf::FloatRect(0, 0, 32, 32));
     part = 0;
 }
-
 void Player::tick() {
     // std::cout << vel.x << " " << vel.y << std::endl;
-    // prevpos = pos;
     boundingBox.shiftBoxes(vel);
     pos += vel;
     // std::cout << prevpos.x << " " << prevpos.y << " " << pos.x << " " << pos.y << std::endl;
@@ -25,11 +23,11 @@ void Player::move() {
     vel.x = 0;
     vel.y = 0;
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-        vel.x = -0.1;
+        vel.x = -0.8;
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
     {
-        vel.x = 0.1;
+        vel.x = 0.8;
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
     {
@@ -37,7 +35,7 @@ void Player::move() {
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
     {
-        vel.y = 0.1;
+        vel.y = 0.6;
     }
     if (clock.getElapsedTime().asSeconds() > 0.5f) {
         anim.setTextureRect(part);
