@@ -12,11 +12,10 @@ int main() {
     ScreenMainMenu s0;
     Screens.push_back(&s0);
 
-    ScreenGame s1;
+    GroundScene s1;
     Screens.push_back(&s1);
 
     while (screen >= 0) {
-
         screen = Screens[screen]->run(window);
     }
     return 0;

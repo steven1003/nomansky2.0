@@ -1,7 +1,7 @@
-#include "screengame.hpp"
+#include "groundscene.hpp"
 #include <iostream>
 
-ScreenGame::ScreenGame() {
+GroundScene::GroundScene() {
     terrain_array = new int[100];
     for(int i = 0; i < 100; i++) {
         terrain_array[i] = 0;
@@ -12,9 +12,9 @@ ScreenGame::ScreenGame() {
 
 }
 
-ScreenGame::~ScreenGame() {}
+GroundScene::~GroundScene() {}
 
-int ScreenGame::run(sf::RenderWindow &window) {
+int GroundScene::run(sf::RenderWindow &window) {
     std::cout << "running game" << std::endl;
     generateTerrain(0, 99, 25);
 
@@ -46,7 +46,7 @@ int ScreenGame::run(sf::RenderWindow &window) {
     return (-1);
 }
 
-void ScreenGame::generateTerrain(int leftindex, int rightindex, int displacement) {
+void GroundScene::generateTerrain(int leftindex, int rightindex, int displacement) {
     if ((leftindex + 1) == rightindex)
         return;
     int midindex = ((leftindex + rightindex) / 2);

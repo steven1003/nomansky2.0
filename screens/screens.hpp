@@ -4,7 +4,7 @@
 
 #include "cscreen.hpp"
 
-#include "screengame.hpp"
+#include "groundscene/groundscene.hpp"
 #include "screenmainmenu.hpp"
 
 #endif

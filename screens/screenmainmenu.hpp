@@ -9,7 +9,6 @@
 #include <iostream>
 #include "cscreen.hpp"
 
-#include "screengame.hpp"
 
 //manages the main menu screen
 class ScreenMainMenu : public CScreen
