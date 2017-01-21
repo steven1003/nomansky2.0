@@ -10,8 +10,12 @@ set(CMAKE_C_COMPILER /usr/bin/gcc)
 set(CMAKE_CXX_COMPILER /usr/bin/g++)
 set(CMAKE_CXX_FLAGS "-std=c++11 ${CMAKE_CXX_FLAGS}")
 
+file(GLOB spacescene_SRC
+    "screens/spacescene/*.cpp"
+)
+
 set(EXECUTABLE_NAME "game")
-add_executable(${EXECUTABLE_NAME} main.cpp screens/screenmainmenu.cpp screens/screenpausemenu.cpp screens/groundscene/groundscene.cpp screens/spacescene/spacescene.cpp screens/starmap/starmap.cpp screens/spacescene/sysobject.cpp)
+add_executable(${EXECUTABLE_NAME} main.cpp screens/screenmainmenu.cpp screens/screenpausemenu.cpp screens/groundscene/groundscene.cpp ${spacescene_SRC} screens/starmap/starmap.cpp)
 
 if(SFML_FOUND)
   include_directories(${SFML_INCLUDE_DIR})

@@ -1,6 +1,8 @@
-class Asteroid: public Sysobject{
-  sf::CircleShape shape;
+#include "asteroid.hpp"
 
-private:
-  void Asteroid(int xChord, int yChord, String name, sf::CircleShape shape);
+Asteroid::Asteroid(int x, int y, std::string name, sf::CircleShape circle) {
+    xCord = x;
+    yCord = y;
+    shape = circle;
+    shape.setPosition(sf::Vector2f(x, y));
 }

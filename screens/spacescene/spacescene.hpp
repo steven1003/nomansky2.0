@@ -1,5 +1,4 @@
-#ifndef SCREEN_GAME_HPP
-#define SCREEN_GAME_HPP
+#pragma once
 
 #include "../cscreen.hpp"
 
@@ -7,6 +6,8 @@
 #include <SFML/Network.hpp>
 #include <memory>
 #include <stdexcept>
+#include "sysobject.hpp"
+#include "../starmap/starmap.hpp"
 
 class SpaceScene : public CScreen {
 public:
@@ -17,7 +18,4 @@ public:
 private:
   //#TODO
   //Add all functions and variables into SpaceScene
-    void draw();
 };
-
-#endif

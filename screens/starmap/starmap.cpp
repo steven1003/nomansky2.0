@@ -2,11 +2,11 @@
 #include <iostream>
 #include "../spacescene/starsystem.hpp"
 #include <string>
+#include "starmap.hpp"
 
 StarMap::StarMap(){
 
 }
-StarMap::~StarMap() {}
 std::vector<StarSystem> starMap;
 int StarMap::run(sf::RenderWindow &window) {
     std::cout << "running game" << std::endl;
@@ -53,7 +53,6 @@ int StarMap::run(sf::RenderWindow &window) {
             // }
         }
         window.clear(sf::Color(0, 0, 0, 0));
-        draw();
         window.display();
     }
     return (-1);

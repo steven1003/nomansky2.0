@@ -1,10 +1,10 @@
+#pragma once
 #include "sysobject.hpp"
 #include "asteroid.hpp"
 #include "planet.hpp"
 #include "sun.hpp"
-class StarSystem{
 
-
+class StarSystem {
 public:
   StarSystem();
   std::vector<SysObject> shapes;
@@ -14,8 +14,5 @@ public:
   Asteroid getAsteroid(Asteroid asteroid);
   Sun getSun(Sun sun);
   StarSystem getSystem(std::vector<SysObject> systemObjects);
-
-private:
-
 
 };

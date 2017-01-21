@@ -3,6 +3,7 @@
 #include <SFML/Audio.hpp>
 #include "screens/spacescene/spacescene.hpp"
 
+
 int main() {
     srand(time(NULL));
 
@@ -19,8 +20,8 @@ int main() {
     ScreenPauseMenu s2;
     Screens.push_back(&s2);
 
-    // SpaceScene s3;
-    // Screens.push_back(&s3);
+    SpaceScene s3;
+    Screens.push_back(&s3);
 
     StarMap s4;
     Screens.push_back(&s4);
