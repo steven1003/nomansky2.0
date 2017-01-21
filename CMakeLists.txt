@@ -13,9 +13,14 @@ set(CMAKE_CXX_FLAGS "-std=c++11 ${CMAKE_CXX_FLAGS}")
 file(GLOB spacescene_SRC
     "screens/spacescene/*.cpp"
 )
+file(GLOB groundscene_SRC
+    "screens/groundscene/*.cpp"
+)
+
 
 set(EXECUTABLE_NAME "game")
-add_executable(${EXECUTABLE_NAME} main.cpp screens/screenmainmenu.cpp screens/screenpausemenu.cpp screens/groundscene/groundscene.cpp ${spacescene_SRC} screens/starmap/starmap.cpp)
+
+add_executable(${EXECUTABLE_NAME} main.cpp screens/screenmainmenu.cpp screens/screenpausemenu.cpp tools/anim.cpp ${groundscene_SRC} ${spacescene_SRC} screens/starmap/starmap.cpp gui/inventory.cpp gui/tooltip.cpp)
 
 if(SFML_FOUND)
   include_directories(${SFML_INCLUDE_DIR})
@@ -27,7 +32,7 @@ endif()
 if (NOT CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_CURRENT_BINARY_DIR)
 
     # list of files for which we add a copy rule
-    set(data_SHADOW rsc/font.ttf)
+    set(data_SHADOW rsc/font.ttf rsc/player.png)
 
     foreach(item IN LISTS data_SHADOW)
         message(STATUS ${item})
@@ -41,3 +46,4 @@ endif()
 
 # files are only copied if a target depends on them
 add_custom_target(font_font ALL DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/rsc/font.ttf")
+add_custom_target(png_player ALL DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/rsc/player.png")

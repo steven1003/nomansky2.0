@@ -7,8 +7,7 @@ ScreenMainMenu::ScreenMainMenu() {}
 int ScreenMainMenu::run(sf::RenderWindow &window) {
     sf::Event Event;
     sf::Font font;
-    if(!font.loadFromFile("rsc/font.ttf"))
-    {
+    if(!font.loadFromFile("rsc/font.ttf")) {
       return EXIT_FAILURE;
     }
     sf::Text text("No Mans Sky - Pretty much", font, 50);
@@ -36,19 +35,12 @@ int ScreenMainMenu::run(sf::RenderWindow &window) {
             if (Event.type == sf::Event::Closed) {
                 return (-1);
             }
-            else if (Event.type == sf::Event::KeyPressed) {
-                switch (Event.key.code) {
-                case sf::Keyboard::Escape:
-                    return 1; //Goes to Pause Menu
-                }
-            }
         }
     if(op1.contains(sf::Mouse::getPosition(window).x,sf::Mouse::getPosition(window).y))
     {
       if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
       {
-        //Will Launch New Game When Implemented
-        std::cout << "Button 1 Works!" << std::endl;
+        return 1;
       }
     }
 
@@ -74,8 +66,7 @@ int ScreenMainMenu::run(sf::RenderWindow &window) {
     {
       if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
       {
-        //Will Launch New Game When Implemented
-        std::cout << "Button 4 Works!" << std::endl;
+        return (-1);
       }
     }
         window.clear(sf::Color(0, 0, 0, 0));
