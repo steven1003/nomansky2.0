@@ -2,7 +2,7 @@
 
 Tile::Tile() {
     shape.setSize(sf::Vector2f(32,32));
-    shape.setOutlineThickness(sf::Color::White);
+    shape.setOutlineThickness(1);
     shape.setFillColor(sf::Color::Black);
 }
 

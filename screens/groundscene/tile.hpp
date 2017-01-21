@@ -1,11 +1,11 @@
 #pragma once
 
-#include <SFML/Graphics>
+#include <SFML/Graphics.hpp>
 
 class Tile {
 public:
-    Tile () {}
-    ~Tile() {}
+    Tile ();
+    ~Tile();
     void setPosition(float x, float y);
     void draw(sf::RenderWindow &window);
 private:
