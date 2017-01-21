@@ -7,5 +7,7 @@
 #include "groundscene/groundscene.hpp"
 #include "screenmainmenu.hpp"
 #include "screenpausemenu.hpp"
+#include "spacescene/spacescene.hpp"
+#include "starmap/starmap.hpp"
 
 #endif
