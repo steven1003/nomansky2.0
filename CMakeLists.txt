@@ -10,8 +10,16 @@ set(CMAKE_C_COMPILER /usr/bin/gcc)
 set(CMAKE_CXX_COMPILER /usr/bin/g++)
 set(CMAKE_CXX_FLAGS "-std=c++11 ${CMAKE_CXX_FLAGS}")
 
+
+file(GLOB groundscene_SRC
+    "screens/groundscene/*.cpp"
+)
+
+
+
 set(EXECUTABLE_NAME "game")
-add_executable(${EXECUTABLE_NAME} main.cpp screens/screenmainmenu.cpp screens/screenpausemenu.cpp screens/groundscene/groundscene.cpp tools/anim.cpp gui/inventory.cpp gui/tooltip.cpp)
+
+add_executable(${EXECUTABLE_NAME} main.cpp screens/screenmainmenu.cpp screens/screenpausemenu.cpp tools/anim.cpp ${groundscene_SRC} gui/inventory.cpp gui/tooltip.cpp)
 
 if(SFML_FOUND)
   include_directories(${SFML_INCLUDE_DIR})

@@ -2,7 +2,8 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-Anim::Anim(std::string fileLocation, int width, int height, int parts, bool anim) {
+Anim::Anim() {}
+void Anim::init(std::string fileLocation, int width, int height, int parts, bool anim) {
 	this->texture = new sf::Texture();
 	this->texture->loadFromFile(fileLocation);
 	this->width = width;
@@ -20,6 +21,10 @@ sf::Sprite Anim::getSprite() {
 void Anim::setTextureRect(int part) {
 	rect->left = part * (this->width);
 	sprite->setTextureRect(*rect);
+}
+
+void Anim::setPosition(sf::Vector2f &pos) {
+	sprite->setPosition(pos);
 }
 
 Anim::~Anim() {

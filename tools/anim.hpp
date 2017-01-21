@@ -9,10 +9,12 @@
 
 class Anim {
 public:
-    Anim(std::string fileLocation, int width, int height, int parts, bool anim);
+    Anim();
+    void init(std::string fileLocation, int width, int height, int parts, bool anim);
     virtual ~Anim();
     sf::Sprite getSprite();
     void setTextureRect(int part);
+    void setPosition(sf::Vector2f &pos);
 private:
 	sf::Texture* texture;
 	int width;
