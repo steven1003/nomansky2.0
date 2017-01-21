@@ -49,7 +49,7 @@ int ScreenPauseMenu::run(sf::RenderWindow &window) {
         {
             if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
             {
-                return 1;
+                return 2;
             }
         }
 
