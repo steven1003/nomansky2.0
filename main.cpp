@@ -15,6 +15,9 @@ int main() {
     GroundScene s1;
     Screens.push_back(&s1);
 
+    ScreenPauseMenu s2;
+    Screens.push_back(&s2);
+
     while (screen >= 0) {
         screen = Screens[screen]->run(window);
     }
