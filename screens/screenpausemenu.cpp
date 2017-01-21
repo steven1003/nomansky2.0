@@ -25,6 +25,11 @@ int ScreenPauseMenu::run(sf::RenderWindow &window) {
 	sf::Text o4("Quit",font, 35);
     o4.setPosition(325, 250);
 
+    sf::FloatRect op1 = o1.getGlobalBounds();
+    sf::FloatRect op2 = o2.getGlobalBounds();
+    sf::FloatRect op3 = o3.getGlobalBounds();
+    sf::FloatRect op4 = o4.getGlobalBounds();
+
     while (window.isOpen()) {
         while (window.pollEvent(Event)) {
             if (Event.type == sf::Event::Closed) {
@@ -37,7 +42,38 @@ int ScreenPauseMenu::run(sf::RenderWindow &window) {
                 }
             }
         }
+        if(op1.contains(sf::Mouse::getPosition(window).x,sf::Mouse::getPosition(window).y))
+        {
+            if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+            {
+                return 1;
+            }
+        }
 
+        if(op2.contains(sf::Mouse::getPosition(window).x,sf::Mouse::getPosition(window).y))
+        {
+             if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+            {
+                return 0;
+            }
+        }
+
+        if(op3.contains(sf::Mouse::getPosition(window).x,sf::Mouse::getPosition(window).y))
+        {
+            if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+            {
+                //Will open the options screen when ready
+                std::cout << "Button 3 Works!" << std::endl;
+            }
+        }
+
+        if(op4.contains(sf::Mouse::getPosition(window).x,sf::Mouse::getPosition(window).y))
+        {
+            if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+            {
+                return -1;
+            }
+        }
         window.clear(sf::Color(0, 0, 0, 0));
         window.draw(title);
         window.draw(o1);
