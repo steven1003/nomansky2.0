@@ -1,4 +1,5 @@
 #include "groundscene.hpp"
+#include "../../tools/anim.hpp"
 #include <iostream>
 
 GroundScene::GroundScene() {
@@ -24,6 +25,11 @@ int GroundScene::run(sf::RenderWindow &window) {
     rect.setSize(sf::Vector2f(10, 10));
     rect.setFillColor(sf::Color::Cyan);
 
+    Anim* playerAnim = new Anim("rsc/player.png", 24, 40, 7, true);
+    sf::Clock clock;
+
+    int part = 0;
+
     while (window.isOpen()) {
         while (window.pollEvent(Event)) {
             if (Event.type == sf::Event::Closed) {
@@ -41,6 +47,18 @@ int GroundScene::run(sf::RenderWindow &window) {
             rect.setPosition(sf::Vector2f(i * 10, 300 + terrain_array[i]));
             window.draw(rect);
         }
+
+        if (clock.getElapsedTime().asSeconds() > 0.5f) {
+            playerAnim->setTextureRect(part);
+            clock.restart();
+            if(part == 6) {
+                part = 0;
+            } else {
+                part++;
+            }
+        }
+
+        window.draw(playerAnim->getSprite());
         window.display();
     }
     return (-1);
