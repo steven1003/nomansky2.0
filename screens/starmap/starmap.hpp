@@ -1,18 +1,18 @@
 #pragma once
 
-#include "../spacescene/starsystem.hpp"
-#include "../spacescene/spacescene.hpp"
-#include <string>
+#include <SFML/Graphics.hpp>
+#include "../cscreen.hpp"
+#include <iostream>
+#include "../spacescene.hpp"
+#include "../solarsystem/solarsystem.hpp"
 
-class StarMap : public CScreen{
 
-
+class StarMap : public CScreen {
 public:
-  StarMap();
-  virtual int run(sf::RenderWindow &window);
-  //So we need all the functionality of the starmap here including all of its various functions
-  //This is not going to be fun.
-
+    StarMap();
+    StarMap(SpaceScene* scene);
+    virtual int run (sf::RenderWindow &window);
+    std::vector<SolarSystem> solarSystem;
 private:
-    std::vector<StarSystem> starMap;
+    SpaceScene* spaceScene;
 };
