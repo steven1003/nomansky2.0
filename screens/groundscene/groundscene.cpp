@@ -84,7 +84,6 @@ int GroundScene::run(sf::RenderWindow &window) {
             inv.check(window);
         }
 
-        window.draw(playerAnim->getSprite());
         window.display();
     }
     return (-1);
