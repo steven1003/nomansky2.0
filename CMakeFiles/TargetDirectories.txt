@@ -1,3 +1,0 @@
-/home/grymestone/nomansky2.0/CMakeFiles/font_font.dir
-/home/grymestone/nomansky2.0/CMakeFiles/game.dir
-/home/grymestone/nomansky2.0/CMakeFiles/png_player.dir
