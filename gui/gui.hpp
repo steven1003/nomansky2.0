@@ -25,6 +25,7 @@ namespace gui {
 		void check(sf::RenderWindow &window);
 		bool addItem(RscEntity item);
 		bool removeItem(std::string name, int amount);
+		bool addQuantity(std::string name, int amount);
 	private:
 		std::vector<sf::RectangleShape* > rects;
 		std::vector<sf::FloatRect> floatrects;
