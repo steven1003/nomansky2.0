@@ -2,12 +2,12 @@
 
 ArmorRec::ArmorRec(){
   name = "Dilithium Armor";
-  input = sf::Vector2f<std::string,int>({"Dilithium", 200});
+  input = std::vector<std::string>({"Dilithium"});
   output = &Armor;
   int numOf = 1;
 }
 
-sf:std::Vector2f<std::string,int> ArmorRec::getInput()
+std::vector<std::string> ArmorRec::getInput()
 {
   return input;
 }
@@ -24,8 +24,10 @@ RscEntity ArmorRec::getOutput()
 
 RscEntity ArmorRec::craftRecipe(RscEntity res1, int numOfRes)
 {
-    //Remove items from inventory
-    //add item
-    Armor::setNum(1);
+
+    inventory::removeItem("Dilithium", 200);
+    inventory::addItem(Armor);
+    Armor::addItem(1);
+
     return;
 }
