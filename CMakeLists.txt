@@ -21,7 +21,7 @@ file(GLOB groundscene_SRC
 
 set(EXECUTABLE_NAME "game")
 
-add_executable(${EXECUTABLE_NAME} main.cpp screens/screenmainmenu.cpp screens/screenpausemenu.cpp tools/anim.cpp ${groundscene_SRC} screens/starmap/starmap.cpp ${spacescene_SRC} screens/spacescene.cpp gui/inventory.cpp gui/tooltip.cpp)
+add_executable(${EXECUTABLE_NAME} main.cpp screens/screenmainmenu.cpp screens/screenpausemenu.cpp tools/anim.cpp ${groundscene_SRC} screens/starmap/starmap.cpp ${spacescene_SRC} screens/spacescene.cpp gui/inventory.cpp gui/tooltip.cpp gameplay/rscentity.cpp)
 
 if(SFML_FOUND)
   include_directories(${SFML_INCLUDE_DIR})

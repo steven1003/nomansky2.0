@@ -1,31 +1,30 @@
 #include "rscentity.hpp"
 
-RscEntity::RscEntity(){
+RscEntity::RscEntity(std::string texturefile){
   name = "";
   numOf = 0;
-  rsctext;
+  rsctext.loadFromFile(texturefile);
 }
-std::string getName()
+std::string RscEntity::getName()
 {
   return name;
 }
 
-int getNum()
+int RscEntity::getNum()
 {
     return numOf;
 }
 
-void setNum(int num)
-{
-  numOf += num;
-}
-
-sf::Texture getTexture()
+sf::Texture RscEntity::getTexture()
 {
   return rsctext;
 }
 
-void setTexture(sf::Texture text)
+void RscEntity::addItem(int num) {
+	this->numOf += num;
+}
+
+void RscEntity::setTexture(sf::Texture text)
 {
   rsctext = text;
 }

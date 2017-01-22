@@ -1,13 +1,16 @@
-class RscEntity{
+#pragma once
+#include <iostream>
+#include <SFML/Graphics.hpp>
+
+class RscEntity {
 public:
   std::string getName();
   int getNum();
   sf::Texture getTexture();
-  void setNum();
-
-
-
-
+  void addItem(int num);
+  RscEntity(std::string texturefile);
+  void setTexture(sf::Texture text)
+  
 private:
   int numOf;
   sf::Texture rsctext;
@@ -15,4 +18,4 @@ private:
 
 
 
-}
+};
