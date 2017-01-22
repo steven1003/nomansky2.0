@@ -2,6 +2,7 @@
 #define GUI_HPP
 
 #include <SFML/Graphics.hpp>
+#include "../gameplay/rscentity.hpp"
 
 namespace gui {
 
@@ -22,9 +23,12 @@ namespace gui {
 		virtual ~inventory();
 		void display(sf::RenderWindow &window);
 		void check(sf::RenderWindow &window);
+		bool addItem(RscEntity item);
+		bool removeItem(std::string name, int amount);
 	private:
 		std::vector<sf::RectangleShape* > rects;
 		std::vector<sf::FloatRect> floatrects;
+		std::vector<RscEntity> items;
 	};
 }
 
