@@ -3,6 +3,9 @@
 #include "sun.hpp"
 #include "planet.hpp"
 #include "spaceplayer.hpp"
+#include "spacemonster/spacemonster.hpp"
+#include "../../gui/gui.hpp"
+#include "../../gameplay/rsccs/masterrsc.hpp"
 
 SolarSystem::SolarSystem() {
     std::cout << "Generating SolarSystem" << std::endl;
@@ -17,18 +20,52 @@ SolarSystem::SolarSystem(sf::Vector2f bounds) {
 
     for (int i = 0; i < rand() % 7 + 2; i++)
         entities.push_back(new Planet(sf::Vector2f(rand() % (int)bounds.x, rand() % (int)bounds.y), (Sun*)entities[1]));
+    for (int i = 0; i < rand() % 50 + 10; i++)
+        entities.push_back(new SpaceMonster((SpacePlayer*)entities[0]));
+    // }
 
 }
-void SolarSystem::tick() {
+int SolarSystem::tick(GroundScene* groundScene) {
+    SpacePlayer* player = (SpacePlayer*)entities[0];
+    if (player -> shouldFire()) {
+        entities.push_back(new Bullet(player->center, 0.1f * player->dirVec() + player->vel));
+        std::cout << "fired" << std::endl;
+    }
     for (auto const &e : entities) {
         e->move();
         e->tick();
+
+        if (dynamic_cast<Planet*>(e)) {
+            float dx = player->center.x - e->center.x;
+            float dy = player->center.y - e->center.y;
+            float d = sqrt(dx * dx + dy * dy);
+            if (d < e->mass) {
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+                    *groundScene = GroundScene();
+                    return 5;
+                }
+            }
+        }
     }
+
+    // for (std::vector<SysEntity*>::iterator it2 = entities.begin(); it2 != entities.end();)
+    // {
+    //     if (dynamic_cast<Bullet*>((*it2))) {
+    //         if (!((Bullet*)(*it2))->alive())
+    //             it2 = entities.erase(it2);
+    //     }
+    //     else {
+    //         ++it2;
+    //     }
+    // }
+    return 0;
 }
 
 void SolarSystem::draw(sf::RenderWindow &window) {
     auto view = window.getDefaultView();
     ((SpacePlayer*)entities[0])->setView(window, view);
+    ((SpacePlayer*)entities[0])->tickEntites(entities, window);
+
     for (auto const &e : entities) {
         e->draw(window);
     }
@@ -40,5 +77,13 @@ void SolarSystem::drawIcon(sf::RenderWindow &window) {
 bool SolarSystem::checkIconClick(sf::RenderWindow &window) {
     if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
         return shape.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y);
+    }
+}
+
+void SolarSystem::launchMiner(gui::inventory inv)
+{
+    if(inv.removeItem("LaserMiner", 1))
+    {
+      //entities.push_back(new LaserMiner())
     }
 }

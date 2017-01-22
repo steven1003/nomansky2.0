@@ -1,3 +1,5 @@
+#pragma once
+
 #include <string>
 #include <SFML/Graphics.hpp>
 
@@ -7,7 +9,7 @@ public:
   int getNum();
   sf::Texture getTexture();
   void addItem(int num);
-  RscEntity(std::string texturefile);
+  RscEntity(std::string texturefile, std::string name, int num);
   void setTexture(sf::Texture text);
 
 private:

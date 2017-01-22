@@ -3,6 +3,9 @@
 SpaceScene::SpaceScene() {
 }
 
+SpaceScene::SpaceScene(GroundScene* groundScene) {
+    this->groundScene = groundScene;
+}
 int SpaceScene::run(sf::RenderWindow &window) {
     std::cout << "Lauching SpaceScene" << std::endl;
     sf::Event Event;
@@ -19,14 +22,16 @@ int SpaceScene::run(sf::RenderWindow &window) {
             else if (Event.type == sf::Event::KeyPressed) {
                 switch (Event.key.code) {
                 case sf::Keyboard::Escape:
-                    return 2;
+                    return 3;
                     break;
                 }
             }
         }
         window.clear(sf::Color(0, 0, 0, 0));
         // window.draw(rect);
-        currentSystem->tick();
+        if(currentSystem->tick(groundScene) == 5) {
+            return 1;
+        }
         currentSystem->draw(window);
         window.display();
     }

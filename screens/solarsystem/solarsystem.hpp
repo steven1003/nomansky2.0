@@ -4,6 +4,9 @@
 #include "sysentity.hpp"
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include "../groundscene/groundscene.hpp"
+#include "../../gui/gui.hpp"
+#include "spacemonster/bullet.hpp"
 
 class SolarSystem {
 private:
@@ -13,8 +16,9 @@ public:
     SolarSystem();
     SolarSystem(sf::Vector2f bounds);
     std::vector<SysEntity*> entities;
-    void tick();
+    int tick(GroundScene* groundScene);
     void draw(sf::RenderWindow &window);
     void drawIcon(sf::RenderWindow &window);
     bool checkIconClick(sf::RenderWindow &window);
+    void launchMiner(gui::inventory inv);
 };
