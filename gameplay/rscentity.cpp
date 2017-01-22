@@ -9,14 +9,22 @@ std::string RscEntity::getName()
 {
   return name;
 }
+
 int RscEntity::getNum()
 {
     return numOf;
 }
+
 sf::Texture RscEntity::getTexture()
 {
   return rsctext;
 }
+
 void RscEntity::addItem(int num) {
 	this->numOf += num;
+}
+
+void RscEntity::setTexture(sf::Texture text)
+{
+  rsctext = text;
 }
