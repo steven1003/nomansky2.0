@@ -13,4 +13,5 @@ public:
     virtual void tick();
 
     void setView(sf::RenderWindow &window, sf::View &view);
+    void tickEntites(const std::vector<SysEntity*> &entities);
 };

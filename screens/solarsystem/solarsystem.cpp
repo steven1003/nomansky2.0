@@ -19,11 +19,25 @@ SolarSystem::SolarSystem(sf::Vector2f bounds) {
         entities.push_back(new Planet(sf::Vector2f(rand() % (int)bounds.x, rand() % (int)bounds.y), (Sun*)entities[1]));
 
 }
-void SolarSystem::tick() {
+int SolarSystem::tick(GroundScene* groundScene) {
+    SpacePlayer* player = (SpacePlayer*)entities[0];
+    player->tickEntites(entities);
     for (auto const &e : entities) {
         e->move();
         e->tick();
+        if (dynamic_cast<Planet*>(e)) {
+            float dx = player->center.x - e->center.x;
+            float dy = player->center.y - e->center.y;
+            float d = sqrt(dx * dx + dy * dy);
+            if (d < e->mass) {
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+                    *groundScene = GroundScene();
+                    return 5;
+                }
+            }
+        }
     }
+    return 0;
 }
 
 void SolarSystem::draw(sf::RenderWindow &window) {

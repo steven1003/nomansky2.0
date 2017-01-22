@@ -19,6 +19,7 @@ GroundScene::GroundScene() {
     gravity = sf::Vector2f(0,0.2);
 
     // Player player();
+    std::cout << "generating new ground" << std::endl;
 }
 
 GroundScene::~GroundScene() {}

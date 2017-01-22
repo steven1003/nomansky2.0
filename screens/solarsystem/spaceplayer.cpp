@@ -4,10 +4,13 @@ SpacePlayer::SpacePlayer() {
     std::cout << "Generated player" << std::endl;
     rect.setSize(sf::Vector2f(20, 20));
     rect.setFillColor(sf::Color::Magenta);
+    center = sf::Vector2f(pos.x + 20, pos.y + 20);
+    mass = 20;
 }
 
 void SpacePlayer::tick() {
     pos += vel;
+    center = sf::Vector2f(pos.x + 20, pos.y + 20);
     rect.setPosition(pos);
 }
 void SpacePlayer::move() {
@@ -34,4 +37,17 @@ void SpacePlayer::draw(sf::RenderWindow &window) {
 void SpacePlayer::setView(sf::RenderWindow &window, sf::View &view) {
     view.setCenter(pos);
     window.setView(view);
+}
+void SpacePlayer::tickEntites(const std::vector<SysEntity*> &entities) {
+    for (auto const &e : entities) {
+        if (e == (SysEntity*)this) continue;
+        float dx = center.x - e->center.x;
+        float dy = center.y - e->center.y;
+        float d = sqrt(dx * dx + dy * dy);
+        if(d <= mass) continue;
+        float f = 0.001 * mass * e->mass / (d * d);
+        // std::cout << f << std::endl;
+        vel.x -= f * (dx / d);
+        vel.y -= f * (dy / d);
+    }
 }
