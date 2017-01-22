@@ -1,3 +1,6 @@
+#include <string>
+#include <SFML/Graphics.hpp>
+
 class RscEntity{
 public:
   std::string getName();
