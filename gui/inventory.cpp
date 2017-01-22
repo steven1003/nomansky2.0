@@ -49,6 +49,16 @@ namespace gui {
 		}
 	}
 
+	bool inventory::addQuantity(std::string name, int amount) {
+		for(int i=0; i < this->items.size(); i++) {
+			if(name == this->items[i].getName()) {
+				this->items[i].addItem(amount);
+				return true;
+			}
+		}
+		return false;
+	}
+
 	bool inventory::removeItem(std::string name, int amount) {
 		for(int i=0; i < this->items.size(); i++) {
 			if(name == this->items[i].getName()) {

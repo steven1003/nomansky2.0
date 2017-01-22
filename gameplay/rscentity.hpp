@@ -4,9 +4,8 @@ public:
   int getNum();
   sf::Texture getTexture();
   void addItem(int num);
-  void setTexture(sf::Texture);
-
-
+  RscEntity(std::string texturefile);
+  void setTexture(sf::Texture text);
 
 private:
   int numOf;
