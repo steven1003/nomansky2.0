@@ -1,0 +1,3 @@
+# Hashes of file build rules.
+26f9ffe10c96bf43d66ba99354038e0d CMakeFiles/font_font
+26f9ffe10c96bf43d66ba99354038e0d CMakeFiles/png_player

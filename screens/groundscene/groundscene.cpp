@@ -2,6 +2,11 @@
 #include "../../tools/anim.hpp"
 #include "../../gui/gui.hpp"
 #include <iostream>
+#include "../../gameplay/rscentity.hpp"
+#include "../../gameplay/rsccs/dilithium.hpp"
+#include "../../gameplay/rsccs/armorrec.hpp"
+#include "../../gameplay/recipes.hpp"
+
 
 
 GroundScene::GroundScene() {
@@ -56,7 +61,20 @@ int GroundScene::run(sf::RenderWindow &window) {
                     }
                 case sf::Keyboard::I:
                     dispInv = true;
+
+                case sf::Keyboard::E:
+                {
+                  RscEntity d = Dilithium(200);
+                  if(inv.addItem(d))
+                  {
+                    inv.addQuantity("Dilithium", 200);
+                    std::cout<< "Item added" << std::endl;
+                  }
+                  Recipes c = ArmorRec();
+                  c.craftRecipe(inv,"Armor", 1);
                 }
+                }
+
             }
         }
         window.clear(sf::Color(0, 0, 0, 0));

@@ -1,8 +1,8 @@
-#include "rscentity.hpp"
+#include "../rscentity.hpp"
 
-class Armor: RscEntity{
+class Armor:public RscEntity{
 public:
-
+  Armor() : RscEntity("", "Dilithium Armor", 0) {};
 
 
 private:

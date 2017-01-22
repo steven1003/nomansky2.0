@@ -1,32 +1,32 @@
 #include "armor.hpp"
 
-Armor::Armor(){
-  name = "Dilithium Armor";
-  numOf = 0;
-  rsctext;
-}
+// Armor::Armor(){
+//   name = "Dilithium Armor";
+//   numOf = 0;
+//   rsctext;
+// }
 
-std::string getName()
-{
-  return name;
-}
-
-int getNum()
-{
-    return numOf;
-}
-
-void setNum(int num)
-{
-  numOf += num;
-}
-
-sf::Texture getTexture()
-{
-  return rsctext;
-}
-
-void setTexture(sf::Texture text)
-{
-  rsctext = text;
-}
+// std::string Armor::getName()
+// {
+//   return name;
+// }
+//
+// int Armor::getNum()
+// {
+//     return numOf;
+// }
+//
+// void Armor::setNum(int num)
+// {
+//   numOf += num;
+// }
+//
+// sf::Texture Armor::getTexture()
+// {
+//   return rsctext;
+// }
+//
+// void Armor::setTexture(sf::Texture text)
+// {
+//   rsctext = text;
+// }

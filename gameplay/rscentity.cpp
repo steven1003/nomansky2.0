@@ -1,9 +1,10 @@
 #include "rscentity.hpp"
 
-RscEntity::RscEntity(std::string texturefile){
-  name = "";
-  numOf = 0;
-  rsctext.loadFromFile(texturefile);
+RscEntity::RscEntity(std::string texturefile, std::string name, int num){
+  this->name = name;
+  numOf = num;
+  if(texturefile != "")
+    rsctext.loadFromFile(texturefile);
 }
 std::string RscEntity::getName()
 {
