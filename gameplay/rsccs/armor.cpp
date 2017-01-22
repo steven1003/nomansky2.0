@@ -1,4 +1,4 @@
-#include "../rsccs/armor.hpp"
+#include "../rsccs/masterrsc.hpp"
 
 // Armor::Armor(){
 //   name = "Dilithium Armor";

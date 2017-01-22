@@ -1,5 +1,5 @@
 #include "recipes.hpp"
-#include "rsccs/armor.hpp"
+#include "rsccs/masterrsc.hpp"
 
 Recipes::Recipes(std::string name, std::string in,RscEntity* output, int numOf){
   this->name = name;

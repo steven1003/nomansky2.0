@@ -3,8 +3,8 @@
 #include "../../gui/gui.hpp"
 #include <iostream>
 #include "../../gameplay/rscentity.hpp"
-#include "../../gameplay/rsccs/dilithium.hpp"
-#include "../../gameplay/recipes/armorrec.hpp"
+#include "../../gameplay/rsccs/masterrsc.hpp"
+#include "../../gameplay/recipes/masterrec.hpp"
 #include "../../gameplay/recipes.hpp"
 
 

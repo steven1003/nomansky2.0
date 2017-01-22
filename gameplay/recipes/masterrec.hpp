@@ -1,5 +1,10 @@
+#pragma once
 #include "../recipes.hpp"
 #include "../rsccs/armor.hpp"
+
+class LaserMinerRec:public Recipes{
+
+};
 
 class ArmorRec:public Recipes{
 public:
