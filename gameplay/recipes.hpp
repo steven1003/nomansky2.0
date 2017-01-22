@@ -1,6 +1,6 @@
 class Recipes{
 public:
- sf::Vector2f<std::string,int> getInput()
+ sf::Vector2f<std::string,int> getInput();
  std::string getName();
  RscEntity getOutput();
  RscEntity craftRecipe();
