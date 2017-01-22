@@ -1,6 +1,8 @@
 #include "screens/screens.hpp"
 #include <SFML/Network.hpp>
 #include <SFML/Audio.hpp>
+#include "gameplay/rscentity.hpp"
+#include "gameplay/recipes.hpp"
 
 int main() {
     srand(time(NULL));

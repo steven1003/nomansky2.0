@@ -3,6 +3,7 @@ public:
   std::string getName();
   int getNum();
   sf::Texture getTexture();
+  void setNum();
 
 
 

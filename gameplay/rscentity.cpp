@@ -3,17 +3,29 @@
 RscEntity::RscEntity(){
   name = "";
   numOf = 0;
-  rsctext = NULL;
+  rsctext;
 }
-std::string RscEntity::getName()
+std::string getName()
 {
   return name;
 }
-int RscEntity::getNum()
+
+int getNum()
 {
     return numOf;
 }
-sf::Texture RscEntity::getTexture()
+
+void setNum(int num)
+{
+  numOf += num;
+}
+
+sf::Texture getTexture()
 {
   return rsctext;
+}
+
+void setTexture(sf::Texture text)
+{
+  rsctext = text;
 }
