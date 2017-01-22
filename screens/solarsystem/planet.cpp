@@ -30,7 +30,7 @@ void Planet::tick() {
 void Planet::move() {
     float dx = center.x - parentSun->center.x;
     float dy = center.y - parentSun->center.y;
-    float vv = sqrt(0.001 * 100 / sunDistance);
+    float vv = sqrt(0.001 * mass *parentSun->mass / sunDistance);
 
     vel.x = vv * (dy / sunDistance);
     vel.y = vv * (-dx / sunDistance);

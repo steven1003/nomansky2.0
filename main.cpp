@@ -13,24 +13,26 @@ int main() {
 
 
 
-    ScreenMainMenu s0;
+    ScreenMainMenu s0; //0
     Screens.push_back(&s0);
 
-    SpaceScene s1;
+    GroundScene s4;
+    Screens.push_back(&s4);
+
+    SpaceScene s1(&s4); //1
     Screens.push_back(&s1);
 
-    StarMap s2(&s1);
+    StarMap s2(&s1); //2
     Screens.push_back(&s2);
 
-    ScreenPauseMenu s3;
+    ScreenPauseMenu s3; //3
     Screens.push_back(&s3);
 
 
     // SpaceScene s3;
     // Screens.push_back(&s3);
 
-    // GroundScene s2;
-    // Screens.push_back(&s2);
+
 
     while (screen >= 0) {
         screen = Screens[screen]->run(window);

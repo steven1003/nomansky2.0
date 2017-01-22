@@ -5,6 +5,7 @@
 
 class SpacePlayer : public SysEntity {
 
+
 public:
     SpacePlayer();
     sf::RectangleShape rect;
@@ -13,4 +14,5 @@ public:
     virtual void tick();
 
     void setView(sf::RenderWindow &window, sf::View &view);
+    void tickEntites(const std::vector<SysEntity*> &entities, sf::RenderWindow &window);
 };

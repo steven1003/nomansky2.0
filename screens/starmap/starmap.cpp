@@ -31,7 +31,7 @@ int StarMap::run(sf::RenderWindow &window) {
             else if (Event.type == sf::Event::KeyPressed) {
                 switch (Event.key.code) {
                 case sf::Keyboard::Escape:
-                    return 3; //Goes to Pause Menu
+                    return 4; //Goes to Pause Menu
                 }
             }
         }
@@ -40,9 +40,8 @@ int StarMap::run(sf::RenderWindow &window) {
         for (auto &s : solarSystem) {
             s.drawIcon(window);
             if (s.checkIconClick(window)) {
-                std::cout << "clicked " << std::endl;
                 spaceScene->currentSystem = &s;
-                return 1;
+                return 2;
             }
         }
         window.display();

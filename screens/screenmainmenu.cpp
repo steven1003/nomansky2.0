@@ -42,7 +42,7 @@ int ScreenMainMenu::run(sf::RenderWindow &window) {
     {
       if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
       {
-        return 2;
+        return 3;
       }
     }
 
