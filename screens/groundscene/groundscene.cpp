@@ -4,7 +4,7 @@
 #include <iostream>
 #include "../../gameplay/rscentity.hpp"
 #include "../../gameplay/rsccs/dilithium.hpp"
-#include "../../gameplay/rsccs/armorrec.hpp"
+#include "../../gameplay/recipes/armorrec.hpp"
 #include "../../gameplay/recipes.hpp"
 
 

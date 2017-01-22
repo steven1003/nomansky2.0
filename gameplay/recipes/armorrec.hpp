@@ -1,5 +1,5 @@
 #include "../recipes.hpp"
-#include "armor.hpp"
+#include "../rsccs/armor.hpp"
 
 class ArmorRec:public Recipes{
 public:
