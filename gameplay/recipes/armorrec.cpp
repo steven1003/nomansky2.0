@@ -25,8 +25,8 @@ RscEntity ArmorRec::getOutput()
 
 RscEntity ArmorRec::craftRecipe(gui::inventory inv, std::string name, int amount)
 {
-    inventory.addItem(Armor);
-    inventory.addQuantity("Armor", 1);
-    inventory.removeItem("Dilithium", 200);
+    inv.addItem(Armor);
+    inv.addQuantity("Armor", 1);
+    inv.removeItem("Dilithium", 200);
     return this->Armor;
 }

@@ -3,6 +3,10 @@
 #include "../rsccs/armor.hpp"
 
 class LaserMinerRec:public Recipes{
+public:
+  LaserMinerRec() : Recipes("Laser Miner", "Dilithium", (RscEntity*)(new LaserMiner()),1){};
+
+private:
 
 };
 

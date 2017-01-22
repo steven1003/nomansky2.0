@@ -5,6 +5,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "../groundscene/groundscene.hpp"
+#include "../../gui/gui.hpp"
 
 class SolarSystem {
 private:
@@ -18,4 +19,5 @@ public:
     void draw(sf::RenderWindow &window);
     void drawIcon(sf::RenderWindow &window);
     bool checkIconClick(sf::RenderWindow &window);
+    void launchMiner(gui::inventory inv);
 };

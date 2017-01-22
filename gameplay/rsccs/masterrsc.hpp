@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../rscentity.hpp"
+#include "../../gui/gui.hpp"
 
 class Dilithium: public RscEntity{
 public:
@@ -18,4 +19,12 @@ public:
 
 private:
 
+};
+
+class LaserMiner: public RscEntity{
+public:
+  LaserMiner() : RscEntity("", "Dilithium Miner", 0){};
+  void mineRsc(gui::inventory inv){};
+  void deployMiner(){};
+private:
 };
