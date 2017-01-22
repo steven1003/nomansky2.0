@@ -4,6 +4,8 @@
 #include "planet.hpp"
 #include "spaceplayer.hpp"
 #include "spacemonster/spacemonster.hpp"
+#include "../../gui/gui.hpp"
+#include "../../gameplay/rsccs/masterrsc.hpp"
 
 SolarSystem::SolarSystem() {
     std::cout << "Generating SolarSystem" << std::endl;
@@ -75,5 +77,13 @@ void SolarSystem::drawIcon(sf::RenderWindow &window) {
 bool SolarSystem::checkIconClick(sf::RenderWindow &window) {
     if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
         return shape.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y);
+    }
+}
+
+void SolarSystem::launchMiner(gui::inventory inv)
+{
+    if(inv.removeItem("LaserMiner", 1))
+    {
+      //entities.push_back(new LaserMiner())
     }
 }

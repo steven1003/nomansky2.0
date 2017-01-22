@@ -5,6 +5,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "../groundscene/groundscene.hpp"
+#include "../../gui/gui.hpp"
 #include "spacemonster/bullet.hpp"
 
 class SolarSystem {
@@ -19,4 +20,5 @@ public:
     void draw(sf::RenderWindow &window);
     void drawIcon(sf::RenderWindow &window);
     bool checkIconClick(sf::RenderWindow &window);
+    void launchMiner(gui::inventory inv);
 };
