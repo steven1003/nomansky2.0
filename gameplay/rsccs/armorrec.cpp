@@ -27,7 +27,7 @@ RscEntity ArmorRec::craftRecipe(RscEntity res1, int numOfRes)
 
     inventory::removeItem("Dilithium", 200);
     inventory::addItem(Armor);
-    Armor::addItem(1);
+    //Armor::addItem(1);
 
     return;
 }

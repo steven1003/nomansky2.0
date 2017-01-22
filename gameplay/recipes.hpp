@@ -1,3 +1,6 @@
+#include <string>
+#include <SFML/Graphics.hpp>
+
 class Recipes{
 public:
  std::vector<std::string> getInput();
