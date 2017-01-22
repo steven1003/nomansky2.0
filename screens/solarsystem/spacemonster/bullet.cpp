@@ -1,12 +1,12 @@
 #include "bullet.hpp"
 
 Bullet::Bullet(sf::Vector2f pos, sf::Vector2f vel) {
-    std::cout << "Made bullet" << std::endl;
     this->pos = pos;
     this->vel = vel;
-    shape.setSize(sf::Vector2f(5, 10));
+    this->mass = 0;
+    shape.setSize(sf::Vector2f(50, 5));
     shape.setFillColor(sf::Color::White);
-    shape.rotate(std::atan2(vel.y, vel.x) * 180 / 3.1415);
+    shape.rotate(std::atan2(vel.y, vel.x) * 360 / 3.1415);
 }
 
 void Bullet::tick() {
@@ -14,7 +14,6 @@ void Bullet::tick() {
     shape.setPosition(pos);
 }
 void Bullet::move() {
-    std::cout << "ticked" << std::endl;
 
 }
 

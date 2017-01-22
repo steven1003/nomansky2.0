@@ -12,6 +12,7 @@ private:
     float angle;
     sf::Clock clock;
     float speed;
+    int limit;
 public:
     SpaceMonster();
     SpaceMonster(SpacePlayer *spacePlayer);

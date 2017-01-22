@@ -13,6 +13,8 @@ SpaceMonster::SpaceMonster(SpacePlayer *spacePlayer) {
 
     speed = 0.01 + static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
 
+    limit = rand() % 100 + 200;
+
 }
 
 void SpaceMonster::tick() {
@@ -27,11 +29,11 @@ void SpaceMonster::move() {
 
     float x = std::sqrt(std::pow(dir.x, 2) + std::pow(dir.y, 2));
 
-    if (x < 200) return;
+    if (x < limit) return;
     dir = dir / -x;
     // float r2 = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / 0.5));
     if (x < 250) fire = true;
-    if (x > 300) fire = false;
+    if (x > limit + 100) fire = false;
     vel = speed * dir;
     // std::cout << r << std::endl;
 }
