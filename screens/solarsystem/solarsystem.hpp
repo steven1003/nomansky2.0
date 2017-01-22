@@ -5,6 +5,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "../groundscene/groundscene.hpp"
+#include "spacemonster/bullet.hpp"
 
 class SolarSystem {
 private:

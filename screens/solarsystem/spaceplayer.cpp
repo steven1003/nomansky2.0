@@ -6,7 +6,7 @@ SpacePlayer::SpacePlayer() {
     rect.setFillColor(sf::Color::Magenta);
     mass = 20;
     center = sf::Vector2f(pos.x + mass / 2, pos.y + mass / 2);
-
+    angle = 0;
 }
 
 void SpacePlayer::tick() {
@@ -15,21 +15,33 @@ void SpacePlayer::tick() {
     rect.setPosition(pos);
 }
 void SpacePlayer::move() {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
         vel.x += -0.0001;
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
         vel.x += 0.0001;
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
     {
         vel.y += -0.0001;
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
     {
         vel.y += 0.0001;
     }
+    if ( sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+        fire = true;
+    }
+    else fire = false;
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+        angle += 0.1;
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+    {
+        angle -= 0.1;
+    }
+    // std::cout << angle << std::endl;
 }
 void SpacePlayer::draw(sf::RenderWindow &window) {
     window.draw(rect);
@@ -60,4 +72,16 @@ void SpacePlayer::tickEntites(const std::vector<SysEntity*> &entities, sf::Rende
 
         window.draw(line, 2, sf::Lines);
     }
+}
+
+bool SpacePlayer::shouldFire() {
+    if(fire && clock.getElapsedTime().asSeconds() > 0.1) {
+        clock.restart();
+        return true;
+    }
+    return false;
+}
+
+sf::Vector2f SpacePlayer::dirVec() {
+    return sf::Vector2f(std::acos(angle*3.1415/360), std::asin(angle*3.1415/360));
 }

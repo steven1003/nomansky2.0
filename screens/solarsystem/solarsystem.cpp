@@ -25,9 +25,14 @@ SolarSystem::SolarSystem(sf::Vector2f bounds) {
 }
 int SolarSystem::tick(GroundScene* groundScene) {
     SpacePlayer* player = (SpacePlayer*)entities[0];
+    if (player -> shouldFire()) {
+        entities.push_back(new Bullet(player->center, 0.1f * player->dirVec() + player->vel));
+        std::cout << "fired" << std::endl;
+    }
     for (auto const &e : entities) {
         e->move();
         e->tick();
+
         if (dynamic_cast<Planet*>(e)) {
             float dx = player->center.x - e->center.x;
             float dy = player->center.y - e->center.y;
@@ -40,6 +45,17 @@ int SolarSystem::tick(GroundScene* groundScene) {
             }
         }
     }
+
+    // for (std::vector<SysEntity*>::iterator it2 = entities.begin(); it2 != entities.end();)
+    // {
+    //     if (dynamic_cast<Bullet*>((*it2))) {
+    //         if (!((Bullet*)(*it2))->alive())
+    //             it2 = entities.erase(it2);
+    //     }
+    //     else {
+    //         ++it2;
+    //     }
+    // }
     return 0;
 }
 
