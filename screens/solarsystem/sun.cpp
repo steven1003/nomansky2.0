@@ -20,6 +20,8 @@ void Sun::draw(sf::RenderWindow &window) {
     window.draw(shape);
 }
 
-void Sun::tick() {}
+void Sun::tick() {
+
+}
 
 void Sun::move() {}

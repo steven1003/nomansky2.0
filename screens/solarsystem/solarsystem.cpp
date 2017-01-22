@@ -21,7 +21,6 @@ SolarSystem::SolarSystem(sf::Vector2f bounds) {
 }
 int SolarSystem::tick(GroundScene* groundScene) {
     SpacePlayer* player = (SpacePlayer*)entities[0];
-    player->tickEntites(entities);
     for (auto const &e : entities) {
         e->move();
         e->tick();
@@ -43,6 +42,8 @@ int SolarSystem::tick(GroundScene* groundScene) {
 void SolarSystem::draw(sf::RenderWindow &window) {
     auto view = window.getDefaultView();
     ((SpacePlayer*)entities[0])->setView(window, view);
+    ((SpacePlayer*)entities[0])->tickEntites(entities, window);
+
     for (auto const &e : entities) {
         e->draw(window);
     }
