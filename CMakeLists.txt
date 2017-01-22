@@ -18,10 +18,13 @@ file(GLOB groundscene_SRC
     "screens/groundscene/*.cpp"
 )
 
+file(GLOB spacemonster_SRC
+    "screens/solarsystem/spacemonster/*.cpp"
+)
 
 set(EXECUTABLE_NAME "game")
 
-add_executable(${EXECUTABLE_NAME} main.cpp screens/screenmainmenu.cpp screens/screenpausemenu.cpp tools/anim.cpp ${groundscene_SRC} screens/starmap/starmap.cpp ${spacescene_SRC} screens/spacescene.cpp gui/inventory.cpp gui/tooltip.cpp)
+add_executable(${EXECUTABLE_NAME} main.cpp screens/screenmainmenu.cpp screens/screenpausemenu.cpp tools/anim.cpp ${groundscene_SRC} ${spacemonster_SRC} screens/solarsystem/spacemonster/bullet.cpp screens/starmap/starmap.cpp ${spacescene_SRC} screens/spacescene.cpp gui/inventory.cpp gui/tooltip.cpp)
 
 if(SFML_FOUND)
   include_directories(${SFML_INCLUDE_DIR})

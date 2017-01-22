@@ -3,6 +3,7 @@
 #include "sun.hpp"
 #include "planet.hpp"
 #include "spaceplayer.hpp"
+#include "spacemonster/spacemonster.hpp"
 
 SolarSystem::SolarSystem() {
     std::cout << "Generating SolarSystem" << std::endl;
@@ -17,6 +18,9 @@ SolarSystem::SolarSystem(sf::Vector2f bounds) {
 
     for (int i = 0; i < rand() % 7 + 2; i++)
         entities.push_back(new Planet(sf::Vector2f(rand() % (int)bounds.x, rand() % (int)bounds.y), (Sun*)entities[1]));
+    for (int i = 0; i < rand() % 50 + 10; i++)
+        entities.push_back(new SpaceMonster((SpacePlayer*)entities[0]));
+    // }
 
 }
 int SolarSystem::tick(GroundScene* groundScene) {
